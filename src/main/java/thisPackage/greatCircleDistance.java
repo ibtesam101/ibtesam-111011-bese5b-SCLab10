@@ -2,24 +2,24 @@ package thisPackage;
 
 public class greatCircleDistance {
 	
-	public float getDistance(float x1, float x2, float y1, float y2){
+	public float getDistance(Double double1, Double double2, Double double3, Double double4){
 		float distance;
 		distance = 0;
 		
-		x1 = (float) Math.toRadians(x1);
-		x2 = (float) Math.toRadians(x2);
-		y1 = (float) Math.toRadians(y1);
-		y2 = (float) Math.toRadians(y2);
+		double1 = Math.toRadians(double1);
+		double2 = Math.toRadians(double2);
+		double3 =  Math.toRadians(double3);
+		double4 =  Math.toRadians(double4);
 		
-		distance = (float) Math.acos(Math.sin(x1)*Math.sin(x2) + 
-				Math.cos(x1)*Math.cos(x2) *
-				Math.cos(y1-y2));
+		distance = (float) Math.acos(Math.sin(double1)*Math.sin(double2) + 
+				Math.cos(double1)*Math.cos(double2) *
+				Math.cos(double3-double4));
 		
 		
 		return distance * 6400;
 	}
 	
 	public static void main(String[] args){
-		System.out.println(new greatCircleDistance().getDistance(21, 31, 51, 53));
+		System.out.println(new greatCircleDistance().getDistance(21.0, 31.0, 51.0, 53.0));
 	}
 }
