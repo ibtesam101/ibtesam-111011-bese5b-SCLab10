@@ -20,6 +20,29 @@ import com.mongodb.client.MongoDatabase;
 
 public class cityRetriever {
 	
+	public Document findCityCO(double d, double e){
+		MongoClient mongoClient = new MongoClient();
+		// Access database named 'test'
+	       
+		MongoDatabase database = mongoClient.getDatabase("test");
+
+		MongoCollection<Document> collection = database.getCollection("cities");
+
+		
+		
+		Document doc= new Document();
+		
+		BasicDBObject whereQuery = new BasicDBObject();
+		whereQuery.put("latitude", d);
+		whereQuery.put("longitude", e);
+		FindIterable<Document> cursor = collection.find(whereQuery);
+		
+		for(Document d1:cursor){
+			doc=d1;
+		}
+	
+		return doc;
+	}
 	public Document findCity(String x){
 		
 		MongoClient mongoClient = new MongoClient();
@@ -67,6 +90,7 @@ public class cityRetriever {
 		System.out.println("Testing single city search");
 		cityRetriever cR=new cityRetriever();
 		System.out.println(cR.findCity("Atlanta"));
+		System.out.println(cR.findCityCO(33.792999267578125,-84.44319915771484));
 		mongoClient.close();
 	}
 }
