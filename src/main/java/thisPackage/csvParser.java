@@ -32,7 +32,7 @@ public class csvParser {
 	       
 		MongoDatabase database = mongoClient.getDatabase("test");
 
-		// Access collection named 'restaurants'
+		// Access collection named 'cities'
        
 		MongoCollection<Document> collection = database.getCollection("cities");
 
